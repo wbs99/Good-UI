@@ -1,15 +1,16 @@
 <template>
-  <div>hi</div>
-  <Wbs/>
+  <div>导航栏 |
+    <router-link to="/">wbs</router-link>
+    |
+    <router-link to="/xxx">wbs2</router-link>
+  </div>
+  <hr>
+  <router-view/>
 </template>
 
 <script>
-import Wbs from './components/Wbs.vue'
 
 export default {
   name: 'App',
-  components: {
-    Wbs
-  }
 }
 </script>
