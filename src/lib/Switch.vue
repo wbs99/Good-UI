@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{active:value}">
+  <button @click="toggle" :class="{checked:value}">
     <span></span>
   </button>
   <div> {{ value }}</div>
@@ -22,7 +22,7 @@ export default {
 
 <style lang='scss' scoped>
 button {
-  background: grey;
+  background: #bfbfbf;
   height: 22px;
   width: 44px;
   border-radius: 12px;
@@ -37,19 +37,30 @@ button {
     height: 18px;
     background: white;
     border-radius: 12px;
-    transition: left 250ms;
+    transition: all 250ms;
   }
 }
 
-button.active {
+button.checked {
   background: lightpink;
 }
 
-button.active > span {
+button.checked > span {
   left: calc(100% - 20px);
 }
 
 button:focus {
   outline: none;
+}
+button:active{
+  > span{
+    width: 22px;
+  }
+}
+button.checked:active{
+  > span{
+    width: 22px;
+    margin-left:-4px;
+  }
 }
 </style>
