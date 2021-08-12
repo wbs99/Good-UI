@@ -1,14 +1,24 @@
 <template>
-  <button><span></span></button>
+  <button @click="toggle" :class="{active}"><span></span></button>
 </template>
 
 <script lang='ts'>
+import {ref} from 'vue';
 
+export default {
+  setup() {
+    const active = ref(false);
+    const toggle = () => {
+      active.value = !active.value;
+    };
+    return {active, toggle};
+  }
+};
 </script>
 
 <style lang='scss' scoped>
 button {
-  background: lightpink;
+  background: grey;
   height: 22px;
   width: 44px;
   border-radius: 12px;
@@ -26,7 +36,11 @@ button {
   }
 }
 
-button:hover > span {
+button.active {
+  background: lightpink;
+}
+
+button.active > span {
   left: calc(100% - 20px);
 }
 </style>
