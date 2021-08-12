@@ -2,11 +2,10 @@
   <button @click="toggle" :class="{active:value}">
     <span></span>
   </button>
-  <div>{{ value }}</div>
+  <div> {{ value }}</div>
 </template>
 
 <script lang='ts'>
-import {ref} from 'vue';
 
 export default {
   props: {
@@ -14,7 +13,7 @@ export default {
   },
   setup(props, context) {
     const toggle = () => {
-      context.emit('input', !props.value);
+      context.emit('update:value', !props.value);
     };
     return {toggle};
   }
@@ -48,5 +47,9 @@ button.active {
 
 button.active > span {
   left: calc(100% - 20px);
+}
+
+button:focus {
+  outline: none;
 }
 </style>
