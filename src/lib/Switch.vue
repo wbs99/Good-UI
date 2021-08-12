@@ -1,17 +1,22 @@
 <template>
-  <button @click="toggle" :class="{active}"><span></span></button>
+  <button @click="toggle" :class="{active:value}">
+    <span></span>
+  </button>
+  <div>{{ value }}</div>
 </template>
 
 <script lang='ts'>
 import {ref} from 'vue';
 
 export default {
-  setup() {
-    const active = ref(false);
+  props: {
+    value: Boolean
+  },
+  setup(props, context) {
     const toggle = () => {
-      active.value = !active.value;
+      context.emit('input', !props.value);
     };
-    return {active, toggle};
+    return {toggle};
   }
 };
 </script>
@@ -33,6 +38,7 @@ button {
     height: 18px;
     background: white;
     border-radius: 12px;
+    transition: left 250ms;
   }
 }
 
