@@ -42,7 +42,7 @@ button {
 }
 
 button.checked {
-  background: lightpink;
+  background: deeppink;
 }
 
 button.checked > span {
