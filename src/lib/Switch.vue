@@ -39,28 +39,32 @@ button {
     border-radius: 12px;
     transition: all 250ms;
   }
-}
 
-button.checked {
-  background: deeppink;
-}
+  &.checked {
+    background: deeppink;
 
-button.checked > span {
-  left: calc(100% - 20px);
-}
+    > span {
+      left: calc(100% - 20px);
+    }
+  }
 
-button:focus {
-  outline: none;
-}
-button:active{
-  > span{
-    width: 22px;
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    > span {
+      width: 22px;
+    }
+  }
+
+  &.checked:active {
+    > span {
+      width: 22px;
+      margin-left: -4px;
+    }
   }
 }
-button.checked:active{
-  > span{
-    width: 22px;
-    margin-left:-4px;
-  }
-}
+
+
 </style>
