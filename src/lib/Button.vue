@@ -182,6 +182,7 @@ export default {
       color: grey;
 
       &:hover {
+        border:none;
         background: none;
       }
     }

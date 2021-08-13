@@ -1,7 +1,7 @@
 <template>
   <h1>示例1</h1>
   <div>
-    <Button>你好</Button>
+    <Button @click="onClick">你好</Button>
     <Button theme="button">你好</Button>
     <Button theme="text">你好</Button>
     <Button theme="link">你好</Button>
@@ -9,19 +9,19 @@
   <div>
     <h1>示例2</h1>
     <div>
-      <Button size="big">大 button</Button>
-      <Button>普通 button</Button>
-      <Button size="small">小 button</Button>
+      <Button size="big">大大按钮</Button>
+      <Button>普通按钮</Button>
+      <Button size="small">小小按钮</Button>
     </div>
     <div>
-      <Button theme="link" size="big">大 button</Button>
-      <Button theme="link">普通 button</Button>
-      <Button theme="link" size="small">小 button</Button>
+      <Button theme="link" size="big">大大按钮</Button>
+      <Button theme="link">普通按钮</Button>
+      <Button theme="link" size="small">小小按钮</Button>
     </div>
     <div>
-      <Button theme="text" size="big">大 button</Button>
-      <Button theme="text">普通 button</Button>
-      <Button theme="text" size="small">小 button</Button>
+      <Button theme="text" size="big">大大按钮</Button>
+      <Button theme="text">普通按钮</Button>
+      <Button theme="text" size="small">小小按钮</Button>
     </div>
   </div>
   <div>
@@ -42,7 +42,9 @@
       <Button theme="text" level="danger">危险文字按钮</Button>
     </div>
   </div>
-  <h1>示例4</h1>
+  <h2>禁用状态</h2>
+  <h5>按钮不可用状态</h5>
+
   <div>
     <Button disabled>禁用按钮</Button>
     <Button theme="text" disabled>禁用按钮</Button>
