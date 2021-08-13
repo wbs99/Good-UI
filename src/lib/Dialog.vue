@@ -1,23 +1,24 @@
 <template>
   <div v-if="visible">
-    <div @click="closeOnClickOverlay" class="good-dialog-overlay">Dialog</div>
-    <div class="good-dialog-wrapper">
-      <div class="good-dialog">
-        <header>
-          <slot name="title"/>
-          <span @click="close" class="good-dialog-close"></span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button @click="close">取消</Button>
-          <Button level="main">确定</Button>
-        </footer>
+    <Teleport to="body">
+      <div @click="closeOnClickOverlay" class="good-dialog-overlay">Dialog</div>
+      <div class="good-dialog-wrapper">
+        <div class="good-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="good-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button @click="close">取消</Button>
+            <Button @click="ok" level="main">确定</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </div>
-
 </template>
 
 <script lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <Button @click="toggle">显示对话框</Button>
   <Dialog v-model:visible="x" :closeOnClickOverlay="false"
-          :ok="f1" >
+          :ok="f1">
     <template v-slot:title>
       <strong>标题</strong>
     </template>
