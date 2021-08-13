@@ -1,6 +1,7 @@
 <template>
   <button class="good-button"
-          :class="classes">
+          :class="classes"
+          :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -21,6 +22,10 @@ export default {
     level: {
       type: String,
       default: 'level'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
   },
   setup(props) {
@@ -151,6 +156,27 @@ export default {
 
       &:hover, &:focus {
         color: darken(red, 10%)
+      }
+    }
+  }
+
+  &.good-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: grey;
+
+      &:hover {
+        border-color: grey;
+      }
+    }
+  }
+
+  &.good-theme-link, &.good-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: grey;
+      &:hover{
+        background: none;
       }
     }
   }
