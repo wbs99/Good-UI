@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked:value}">
+  <button class="good-switch" @click="toggle" :class="{'good-checked':value}">
     <span></span>
   </button>
   <div> {{ value }}</div>
@@ -20,8 +20,8 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
-button {
+<style lang='scss'>
+.good-switch {
   background: #bfbfbf;
   height: 22px;
   width: 44px;
@@ -40,7 +40,7 @@ button {
     transition: all 250ms;
   }
 
-  &.checked {
+  &.good-checked {
     background: deeppink;
 
     > span {
@@ -58,7 +58,7 @@ button {
     }
   }
 
-  &.checked:active {
+  &.good-checked:active {
     > span {
       width: 22px;
       margin-left: -4px;
