@@ -1,25 +1,34 @@
 <template>
-  <div class="good-dialog-overlay">Dialog</div>
-  <div class="good-dialog-wrapper">
-    <div class="good-dialog">
-      <header>标题 <span class="good-dialog-close"></span></header>
-      <main>
-        <p>对话框内容</p>
-        <p>对话框内容</p>
-        <p>对话框内容</p>
-      </main>
-      <footer>
-        <Button>取消</Button>
-        <Button level="main">确定</Button>
-      </footer>
+  <div v-if="visible">
+    <div class="good-dialog-overlay">Dialog</div>
+    <div class="good-dialog-wrapper">
+      <div class="good-dialog">
+        <header>标题 <span class="good-dialog-close"></span></header>
+        <main>
+          <p>对话框内容</p>
+          <p>对话框内容</p>
+          <p>对话框内容</p>
+        </main>
+        <footer>
+          <Button>取消</Button>
+          <Button level="main">确定</Button>
+        </footer>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
 import Button from './Button.vue';
 
 export default {
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {Button}
 };
 </script>
@@ -86,11 +95,13 @@ export default {
       height: 1px;
       width: 100%;
     }
-    &::before{
-      transform: translate(-50%,-50%) rotate(-45deg);
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
-    &::after{
-      transform: translate(-50%,-50%) rotate(45deg);
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 }
