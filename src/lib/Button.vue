@@ -1,5 +1,5 @@
 <template>
-  <button class="gulu-button"
+  <button class="good-button"
           :class="{[`good-theme-${theme}`]:theme}">
     <slot/>
   </button>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang='scss'>
-.gulu-button {
+.good-button {
   box-sizing: border-box;
   height: 32px;
   padding: 0 12px;
@@ -31,6 +31,7 @@ export default {
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
+
   & + & {
     margin-left: 8px;
   }
@@ -46,6 +47,26 @@ export default {
 
   &::-moz-focus-inner {
     border: 0;
+  }
+
+  &.good-theme-link {
+    border-color: transparent;
+    box-shadow: none;
+    color: deeppink;
+
+    &:hover, &:focus {
+      color: lighten(deeppink, 5%)
+    }
+  }
+
+  &.good-theme-text {
+    border-color: transparent;
+    box-shadow: none;
+    color: inherit;
+
+    &:hover, &:focus {
+      background: darken(deeppink, 5%);
+    }
   }
 }
 </style>
