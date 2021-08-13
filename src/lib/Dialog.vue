@@ -3,13 +3,12 @@
     <div @click="closeOnClickOverlay" class="good-dialog-overlay">Dialog</div>
     <div class="good-dialog-wrapper">
       <div class="good-dialog">
-        <header>标题
+        <header>
+          {{ title }}
           <span @click="close" class="good-dialog-close"></span>
         </header>
         <main>
-          <p>对话框内容</p>
-          <p>对话框内容</p>
-          <p>对话框内容</p>
+          <slot/>
         </main>
         <footer>
           <Button @click="close">取消</Button>
@@ -34,8 +33,12 @@ export default {
       type: Boolean,
       default: true
     },
-    ok:{
-      type:Function
+    ok: {
+      type: Function
+    },
+    title: {
+      type: String,
+      default: '提示：请输入标题'
     }
   },
   components: {Button},
@@ -48,12 +51,12 @@ export default {
         close();
       }
     };
-    const ok =()=>{
-      if(props.ok&&props.ok()!==false){
-        close()
+    const ok = () => {
+      if (props.ok && props.ok() !== false) {
+        close();
       }
-    }
-    return {close, closeOnClickOverlay,ok};
+    };
+    return {close, closeOnClickOverlay, ok};
   }
 };
 </script>

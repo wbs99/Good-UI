@@ -1,7 +1,9 @@
 <template>
   <Button @click="toggle">显示对话框</Button>
   <Dialog v-model:visible="x" :closeOnClickOverlay="false"
-          :ok="f1"></Dialog>
+          :ok="f1" >
+    <div>一行字</div>
+  </Dialog>
 </template>
 
 <script lang='ts'>
