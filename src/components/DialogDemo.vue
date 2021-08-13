@@ -2,7 +2,13 @@
   <Button @click="toggle">显示对话框</Button>
   <Dialog v-model:visible="x" :closeOnClickOverlay="false"
           :ok="f1" >
-    <div>一行字</div>
+    <template v-slot:title>
+      <strong>标题</strong>
+    </template>
+    <template v-slot:content>
+      <strong>加粗的内容</strong>
+      <div>普通的内容</div>
+    </template>
   </Dialog>
 </template>
 

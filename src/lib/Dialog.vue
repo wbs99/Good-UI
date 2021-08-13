@@ -4,11 +4,11 @@
     <div class="good-dialog-wrapper">
       <div class="good-dialog">
         <header>
-          {{ title }}
+          <slot name="title"/>
           <span @click="close" class="good-dialog-close"></span>
         </header>
         <main>
-          <slot/>
+          <slot name="content"/>
         </main>
         <footer>
           <Button @click="close">取消</Button>
@@ -36,10 +36,6 @@ export default {
     ok: {
       type: Function
     },
-    title: {
-      type: String,
-      default: '提示：请输入标题'
-    }
   },
   components: {Button},
   setup(props, context) {
