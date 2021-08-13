@@ -1,6 +1,7 @@
 <template>
   <Button @click="toggle">显示对话框</Button>
-  <Dialog :visible="x"></Dialog>
+  <Dialog v-model:visible="x" :closeOnClickOverlay="false"
+          :ok="f1"></Dialog>
 </template>
 
 <script lang='ts'>
@@ -15,10 +16,13 @@ export default {
   },
   setup() {
     const x = ref(false);
-    const toggle =() =>{
-      x.value=!x.value
-    }
-    return {x,toggle};
+    const toggle = () => {
+      x.value = !x.value;
+    };
+    const f1 = () => {
+      return false;
+    };
+    return {x, toggle, f1};
   }
 };
 </script>

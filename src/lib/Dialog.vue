@@ -1,16 +1,18 @@
 <template>
   <div v-if="visible">
-    <div class="good-dialog-overlay">Dialog</div>
+    <div @click="closeOnClickOverlay" class="good-dialog-overlay">Dialog</div>
     <div class="good-dialog-wrapper">
       <div class="good-dialog">
-        <header>标题 <span class="good-dialog-close"></span></header>
+        <header>标题
+          <span @click="close" class="good-dialog-close"></span>
+        </header>
         <main>
           <p>对话框内容</p>
           <p>对话框内容</p>
           <p>对话框内容</p>
         </main>
         <footer>
-          <Button>取消</Button>
+          <Button @click="close">取消</Button>
           <Button level="main">确定</Button>
         </footer>
       </div>
@@ -27,9 +29,32 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok:{
+      type:Function
     }
   },
-  components: {Button}
+  components: {Button},
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const closeOnClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    const ok =()=>{
+      if(props.ok&&props.ok()!==false){
+        close()
+      }
+    }
+    return {close, closeOnClickOverlay,ok};
+  }
 };
 </script>
 
