@@ -1,17 +1,38 @@
 <template>
   <button class="good-button"
-          :class="{[`good-theme-${theme}`]:theme}">
+          :class="classes">
     <slot/>
   </button>
 </template>
 
 <script lang='ts'>
+import {computed} from 'vue';
+
 export default {
   props: {
     theme: {
       type: String,
       default: 'button'
-    }
+    },
+    size: {
+      type: String,
+      default: 'normal'
+    },
+    level: {
+      type: String,
+      default: 'level'
+    },
+  },
+  setup(props) {
+    const {theme, size, level} = props;
+    const classes = computed(() => {
+      return {
+        [`good-theme-${theme}`]: theme,
+        [`good-size-${size}`]: size,
+        [`good-level-${level}`]: level,
+      };
+    });
+    return {classes};
   }
 };
 </script>
@@ -31,6 +52,7 @@ export default {
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
+  transition: background 250ms;
 
   & + & {
     margin-left: 8px;
@@ -68,5 +90,72 @@ export default {
       background: darken(deeppink, 5%);
     }
   }
+
+  &.good-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+
+  &.good-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
+  }
+
+  &.good-theme-button {
+    &.good-level-main {
+      background: blue;
+      color: white;
+      border-color: blue;
+
+      &:hover, &:focus {
+        background: darken(blue, 10%);
+        border-color: darken(blue, 10%);
+      }
+    }
+
+    &.good-level-danger {
+      background: red;
+      color: white;
+      border-color: red;
+
+      &:hover, &:focus {
+        background: darken(red, 10%);
+        border-color: darken(red, 10%);
+      }
+    }
+  }
+
+  &.good-theme-link {
+    &.good-level-danger {
+      color: red;
+
+      &:hover, &:focus {
+        color: darken(red, 10%)
+      }
+    }
+  }
+
+  &.good-theme-text {
+    &.good-level-main {
+      color: blue;
+
+      &:hover, &:focus {
+        color: darken(blue, 10%)
+      }
+    }
+
+    &.good-level-danger {
+      color: red;
+
+      &:hover, &:focus {
+        color: darken(red, 10%)
+      }
+    }
+  }
+
 }
+
+
 </style>
