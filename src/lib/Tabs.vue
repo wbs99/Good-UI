@@ -1,21 +1,27 @@
 <template>
   <div class="good-tabs">
     <div class="good-tabs-nav">
-      <div class="good-tabs-nav-item" :class="{selected:title===selected}" v-for="(title,index) in titles" :key="index">{{ title }}</div>
+      <div class="good-tabs-nav-item"
+           :class="{selected:title===selected}"
+           v-for="(title,index) in titles" :key="index"
+           @click="select(title)">
+        {{ title }}
+      </div>
     </div>
     <div class="good-tabs-content">
-      <component class="good-tabs-content-item" v-for="(c,index) in defaults" :is="c" :key="index"/>
+      <component class="good-tabs-content-item" :is="current" :key="current.props.title"/>
     </div>
   </div>
 </template>
 
 <script lang='ts'>
 import Tab from './Tab.vue';
+import {computed} from 'vue';
 
 export default {
-  props:{
-    selected:{
-      type:String
+  props: {
+    selected: {
+      type: String
     }
   },
   setup(props, context) {
@@ -28,8 +34,16 @@ export default {
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
+    const current = computed(() => {
+      return defaults.filter((tag) => {
+        return tag.props.title === props.selected;
+      })[0];
+    });
+    const select = (title) => {
+      context.emit('update:selected', title);
+    };
     return {
-      defaults, titles
+      defaults, titles, current, select
     };
   }
 };
