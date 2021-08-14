@@ -4,7 +4,7 @@
       <div class="good-tabs-nav-item"
            :class="{selected:title===selected}"
            v-for="(title,index) in titles" :key="index"
-           :ref="el => { if (el) navItems[index] = el }"
+           :ref="el => { if (title===selected) selectedItem= el }"
            @click="select(title)">
         {{ title }}
       </div>
@@ -28,16 +28,14 @@ export default {
   },
   setup(props, context) {
     //TS 并不知道下面写的 div 是什么类型，这里的意思 ref 中的数组就是 HTMLDiv元素的数组（泛型语法）
-    const navItems = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     const x = () => {
-      const divs = navItems.value;
-      const result = divs.filter(div => div.classList.contains('selected'))[0];
-      const {width} = result.getBoundingClientRect();
+      const {width} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
       const containerLeft = container.value.getBoundingClientRect().left;
-      const divLeft = result.getBoundingClientRect().left;
+      const divLeft = selectedItem.value.getBoundingClientRect().left;
       const left = divLeft - containerLeft;
       indicator.value.style.left = left + 'px';
     };
@@ -61,7 +59,7 @@ export default {
       context.emit('update:selected', title);
     };
     return {
-      defaults, titles, current, select, navItems, indicator, container
+      defaults, titles, current, select, indicator, container, selectedItem
     };
   }
 };
