@@ -1,4 +1,5 @@
 <template>
+  <h1>基础用法</h1>
   <Button @click="toggle">显示对话框</Button>
   <Dialog v-model:visible="x" :closeOnClickOverlay="false"
           :ok="f1">
@@ -10,12 +11,15 @@
       <div>普通的内容</div>
     </template>
   </Dialog>
+  <h1>一句话显示对话框</h1>
+  <Button @click="showDialog">一句话打开对话框</Button>
 </template>
 
 <script lang='ts'>
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
 import {ref} from 'vue';
+import { openDialog } from '../lib/openDialog.ts';
 
 export default {
   components: {
@@ -30,7 +34,19 @@ export default {
     const f1 = () => {
       return false;
     };
-    return {x, toggle, f1};
+    const showDialog=()=>{
+      openDialog({
+        title:'标题',
+        content:'你好哇',
+        ok(){
+          console.log('确认')
+        },
+        close(){
+          console.log('取消');
+        }
+      })
+    }
+    return {x, toggle, f1,showDialog};
   }
 };
 </script>
