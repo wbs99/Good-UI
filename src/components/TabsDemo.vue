@@ -1,11 +1,11 @@
 <template>
-  <Tabs>
+  <Tabs selected="导航1">
     <Tab title="导航1">内容1</Tab>
-<Tab title="导航2">内容2</Tab>
-    </Tabs>
-    </template>
+    <Tab title="导航2">内容2</Tab>
+  </Tabs>
+</template>
 
-    <script lang='ts'>
+<script lang='ts'>
 import Tabs from '../lib/Tabs.vue';
 import Tab from '../lib/Tab.vue';
 
