@@ -85,7 +85,7 @@ export default {
 
   > main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 48px;
     background: white;
   }
 }
@@ -98,10 +98,11 @@ aside {
   left: 0;
   padding-top: 70px;
   height: 100%;
+  z-index: 10;
 
   > h2 {
     margin-bottom: 4px;
-    padding: 0 16px;
+    padding: 8px 16px;
   }
 
   > ol {

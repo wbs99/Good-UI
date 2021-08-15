@@ -43,18 +43,18 @@ export default {
 <style lang='scss' scoped>
 
 .topnav {
+  background: white;
   display: flex;
   padding: 16px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
-
+  z-index: 20;
+  box-shadow: 0 5px 5px rgb(51 51 51 / 10%);
   > .logo {
     max-width: 6em;
     margin-right: auto;
-
     > svg {
       width: 40px;
       height: 40px;
