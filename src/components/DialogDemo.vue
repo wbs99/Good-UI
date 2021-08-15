@@ -19,7 +19,7 @@
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
 import {ref} from 'vue';
-import { openDialog } from '../lib/openDialog';
+import {openDialog} from '../lib/openDialog';
 
 export default {
   components: {
@@ -34,19 +34,19 @@ export default {
     const f1 = () => {
       return false;
     };
-    const showDialog=()=>{
+    const showDialog = () => {
       openDialog({
-        title:'标题',
-        content:'你好哇',
-        ok(){
-          console.log('确认')
+        title: '标题',
+        content: '你好哇',
+        ok() {
+          console.log('确认');
         },
-        close(){
+        close() {
           console.log('取消');
         }
-      })
-    }
-    return {x, toggle, f1,showDialog};
+      });
+    };
+    return {x, toggle, f1, showDialog};
   }
 };
 </script>

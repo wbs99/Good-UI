@@ -86,7 +86,7 @@ export default {
       }
 
       > h3 {
-      grid-area: title;
+        grid-area: title;
         font-size: 28px;
       }
 

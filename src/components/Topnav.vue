@@ -11,8 +11,8 @@
       </li>
     </ul>
     <svg v-if="toggleMenuButtonVisible"
-          class="toggleAside"
-          @click="toggleMenu">
+         class="toggleAside"
+         @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
     </svg>
   </div>
