@@ -19,7 +19,7 @@
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
 import {ref} from 'vue';
-import { openDialog } from '../lib/openDialog.ts';
+import { openDialog } from '../lib/openDialog';
 
 export default {
   components: {
