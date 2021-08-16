@@ -1,3 +1,4 @@
+//@ts-nocheck
 
 import { md } from "./plugins/md";
 import * as fs from 'fs'
