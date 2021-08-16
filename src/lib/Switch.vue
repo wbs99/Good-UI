@@ -1,5 +1,7 @@
 <template>
-  <button class="good-switch" @click="toggle" :class="{'good-checked':value}">
+  <button class="good-switch" @click="toggle"
+          :class="{'good-checked':value}"
+          :disabled="disabled">
     <span></span>
   </button>
   <div> {{ value }}</div>
@@ -9,7 +11,11 @@
 
 export default {
   props: {
-    value: Boolean
+    value: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
   },
   setup(props, context) {
     const toggle = () => {
@@ -29,6 +35,10 @@ export default {
   border: none;
   position: relative;
 
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
   span {
     position: absolute;
     top: 1.5px;
@@ -38,11 +48,11 @@ export default {
     background: white;
     border-radius: 12px;
     transition: all 250ms;
+
   }
 
   &.good-checked {
-    background: deeppink;
-
+    background: #ee6666;
     > span {
       left: calc(100% - 20px);
     }
@@ -62,6 +72,14 @@ export default {
     > span {
       width: 22px;
       margin-left: -4px;
+    }
+  }
+  &[disabled]{
+    &:active{
+      cursor: not-allowed;
+    }
+    >span{
+      width: 18px;
     }
   }
 }

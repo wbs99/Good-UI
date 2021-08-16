@@ -69,8 +69,8 @@ export default {
   }
 
   &:hover, &:focus {
-    color: deeppink;
-    border-color: deeppink;
+    color: #1313ff;
+    border-color: #1313ff;
   }
 
   &:focus {
@@ -82,22 +82,24 @@ export default {
   }
 
   &.good-theme-link {
-    border-color: transparent;
     box-shadow: none;
-    color: deeppink;
+    color: black;
+    border: 1px solid #d9d9d9;
 
     &:hover, &:focus {
-      color: lighten(deeppink, 5%)
+      color: #1313ff;
+      border-color: #1313ff;
     }
   }
 
   &.good-theme-text {
-    border-color: transparent;
     box-shadow: none;
     color: inherit;
+    border: 1px solid #d9d9d9;
 
     &:hover, &:focus {
-      background: darken(deeppink, 5%);
+      color: #1313ff;
+      border-color: #1313ff;
     }
   }
 
@@ -133,6 +135,28 @@ export default {
       &:hover, &:focus {
         background: darken(red, 10%);
         border-color: darken(red, 10%);
+      }
+    }
+
+    &.good-level-warning {
+      background: #ffce3d;
+      color: white;
+      border-color: #ffce3d;
+
+      &:hover, &:focus {
+        background: darken(#ffce3d, 10%);
+        border-color: darken(#ffce3d, 10%);
+      }
+    }
+
+    &.good-level-success {
+      background: #00a854;
+      color: white;
+      border-color: #00a854;
+
+      &:hover, &:focus {
+        background: darken(#00a854, 10%);
+        border-color: darken(#00a854, 10%);
       }
     }
   }
@@ -171,7 +195,7 @@ export default {
       color: grey;
 
       &:hover {
-        border-color: grey;
+        border-color: #d9d9d9;
       }
     }
   }
@@ -182,26 +206,32 @@ export default {
       color: grey;
 
       &:hover {
-        border:none;
+        border: none;
         background: none;
       }
     }
   }
-  > .good-loadingIndicator{
+
+  > .good-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
     margin-right: 4px;
-    border-radius:8px;
+    border-radius: 8px;
     border-color: blue blue blue transparent;
-    border-style:solid;
+    border-style: solid;
     border-width: 2px;
     animation: good-loading 1s infinite linear;
   }
 }
+
 @keyframes good-loading {
-  0%{transform: rotate(0deg)}
-  100%{transform: rotate(360deg)}
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
 }
 
 

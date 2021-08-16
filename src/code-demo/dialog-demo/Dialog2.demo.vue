@@ -3,13 +3,13 @@
 </demo>
 <template>
   <div>
-    <Button @click="showDialog">一句话打开对话框</Button>
+    <Button @click="showDialog">一键打开对话框</Button>
   </div>
 </template>
 
 <script lang='ts'>
-import Button from '../lib/Button.vue';
-import {openDialog} from '../lib/openDialog';
+import Button from '../../lib/Button.vue';
+import {openDialog} from '../../lib/openDialog';
 
 export default {
   components: {
@@ -32,7 +32,3 @@ export default {
   }
 };
 </script>
-
-<style lang='scss' scoped>
-
-</style>

@@ -3,14 +3,15 @@
 </demo>
 <template>
   <Tabs v-model:selected="x">
-    <Tab title="导航1">内容1</Tab>
-    <Tab title="导航2">内容2</Tab>
+    <Tab title="Tabs1">Tabs1 的内容</Tab>
+    <Tab title="Tabs2">Tab2 的内容</Tab>
+    <Tab title="Tabs3">Tab3 的内容</Tab>
   </Tabs>
 </template>
 
 <script lang="ts">
-import Tabs from '../lib/Tabs.vue'
-import Tab from '../lib/Tab.vue'
+import Tabs from '../../lib/Tabs.vue'
+import Tab from '../../lib/Tab.vue'
 import {
   ref
 } from 'vue'
@@ -20,7 +21,7 @@ export default {
     Tab
   },
   setup() {
-    const x = ref('导航2')
+    const x = ref('Tabs2')
     return {
       x
     }

@@ -84,7 +84,7 @@ export default {
       }
 
       &.selected {
-        color: deeppink;
+        color: #ee6666;
       }
     }
 
