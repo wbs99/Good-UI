@@ -4,19 +4,20 @@
       <div class="good-tabs-nav-item"
            :class="{selected:title===selected}"
            v-for="(title,index) in titles" :key="index"
-           :ref="el => { if (title===selected) selectedItem= el }"
+           :ref="el => { if (title===selected) selectedItem = el }"
            @click="select(title)">
         {{ title }}
       </div>
       <div class="good-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="good-tabs-content">
-      <component class="good-tabs-content-item" :is="current" :key="current.props.title"/>
+      <component  :is="current" :key="current.props.title"/>
     </div>
   </div>
 </template>
 
 <script lang='ts'>
+
 import Tab from './Tab.vue';
 import {computed, onMounted, onUpdated, ref} from 'vue';
 
@@ -59,7 +60,7 @@ export default {
       context.emit('update:selected', title);
     };
     return {
-      defaults, titles, current, select, indicator, container, selectedItem
+      defaults, titles, current, select, selectedItem, indicator, container
     };
   }
 };
