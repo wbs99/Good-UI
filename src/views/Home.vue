@@ -49,28 +49,17 @@ export default {
 
 <style lang='scss' scoped>
 .wrapper {
-  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
-  clip-path: ellipse(80% 60% at 50% 40%);
+  background: linear-gradient(145deg, rgba(2,0,36,1) 0%, rgba(83,135,195,1) 0%, rgba(168,213,236,1) 100%);  clip-path: ellipse(80% 60% at 50% 40%);
 }
 
 .ads {
   margin: 64px auto;
-  padding: 0 16px;
+  width: 400px;
   @media(min-width: 800px) {
     width: 800px;
-    >ul{
-      >li{
-        width: 50%;
-      }
-    }
   }
   @media(min-width: 1200px) {
     width: 1200px;
-    >ul{
-      >li{
-        width: 33.3333%;
-      }
-    }
   }
 
   > ul {
@@ -116,14 +105,14 @@ export default {
 
   > .actions {
     padding: 8px 0;
-
+    margin: 12px 0;
     a {
-      margin: 0 8px;
-      background: pink;
-      color: black;
+      margin: 0 12px;
+      background:#0366d6;
+      color: white;
       display: inline-block;
       border-radius: 4px;
-      padding: 8px 24px;
+      padding: 12px 12px;
 
       &:hover {
         text-decoration: none;
