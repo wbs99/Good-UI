@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class='home'>
     <div class="wrapper">
-      <Topnav/>
+      <Topnav class='topnav' />
       <div class="banner">
         <h1>Good UI</h1>
         <h2>一个厉害的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/wbs99?tab=repositories">GitHub</a>
-          <router-link to="/doc">开始</router-link>
+          <router-link to="/doc">马上开始</router-link>
         </p>
       </div>
     </div>
@@ -40,31 +40,50 @@
 </template>
 w
 <script lang="ts">
-import Topnav from '../components/Topnav.vue';
+import Topnav from '../components/Topnav.vue'
 
 export default {
-  components: {Topnav}
-};
+  components: { Topnav },
+}
 </script>
 
 <style lang='scss' scoped>
-.wrapper {
-  background: linear-gradient(145deg, rgba(2,0,36,1) 0%, rgba(83,135,195,1) 0%, rgba(168,213,236,1) 100%);  clip-path: ellipse(80% 60% at 50% 40%);
+// .wrapper {
+//   background: linear-gradient(
+//     145deg,
+//     rgba(2, 0, 36, 1) 0%,
+//     rgba(83, 135, 195, 1) 0%,
+//     rgba(168, 213, 236, 1) 100%
+//   );
+//   clip-path: ellipse(80% 60% at 50% 40%);
+// }
+.home {
+  height: 100vh;
+  z-index: 30;
+  background-image: url(../assets/bg.jpg);
+  background-color: transparent;
+  background-size: cover;
+}
+.topnav {
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
 }
 
 .ads {
   margin: 64px auto;
   width: 400px;
-  @media(min-width: 800px) {
+  @media (min-width: 800px) {
     width: 800px;
   }
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 1200px;
   }
 
   > ul {
     display: flex;
     flex-wrap: wrap;
+    color: white;
 
     > li {
       width: 400px;
@@ -73,8 +92,8 @@ export default {
       justify-content: start;
       align-content: space-between;
       grid-template-areas:
-          'icon title'
-          'icon text';
+        'icon title'
+        'icon text';
       grid-template-columns: 80px auto;
       grid-template-rows: 1fr auto;
 
@@ -102,17 +121,18 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: white;
 
   > .actions {
     padding: 8px 0;
     margin: 12px 0;
     a {
       margin: 0 12px;
-      background:#0366d6;
+      background: #386779;
       color: white;
       display: inline-block;
-      border-radius: 4px;
-      padding: 12px 12px;
+      border-radius: 2rem;
+      padding: 12px 24px;
 
       &:hover {
         text-decoration: none;
@@ -120,5 +140,4 @@ export default {
     }
   }
 }
-
 </style>
