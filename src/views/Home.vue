@@ -1,13 +1,14 @@
 <template>
-  <div class='home'>
+  <div class="home">
     <div class="wrapper">
-      <Topnav class='topnav' />
+      <Topnav class="topnav" />
       <div class="banner">
+        <img src="../assets/light.png" alt="灯泡" />
         <h1>Good UI</h1>
-        <h2>一个厉害的 UI 框架</h2>
+        <h2>用于 Vue3 的学习</h2>
         <p class="actions">
           <a href="https://github.com/wbs99?tab=repositories">GitHub</a>
-          <router-link to="/doc">马上开始</router-link>
+          <router-link to="/doc">快速了解 → </router-link>
         </p>
       </div>
     </div>
@@ -40,27 +41,18 @@
 </template>
 w
 <script lang="ts">
-import Topnav from '../components/Topnav.vue'
+import Topnav from "../components/Topnav.vue";
 
 export default {
   components: { Topnav },
-}
+};
 </script>
 
-<style lang='scss' scoped>
-// .wrapper {
-//   background: linear-gradient(
-//     145deg,
-//     rgba(2, 0, 36, 1) 0%,
-//     rgba(83, 135, 195, 1) 0%,
-//     rgba(168, 213, 236, 1) 100%
-//   );
-//   clip-path: ellipse(80% 60% at 50% 40%);
-// }
+<style lang="scss" scoped>
 .home {
   height: 100vh;
   z-index: 30;
-  background-image: url(../assets/bg.jpg);
+  //background-image: url(../assets/bg.jpg);
   background-color: transparent;
   background-size: cover;
 }
@@ -83,7 +75,7 @@ export default {
   > ul {
     display: flex;
     flex-wrap: wrap;
-    color: white;
+    color: #3a5169;
 
     > li {
       width: 400px;
@@ -92,8 +84,8 @@ export default {
       justify-content: start;
       align-content: space-between;
       grid-template-areas:
-        'icon title'
-        'icon text';
+        "icon title"
+        "icon text";
       grid-template-columns: 80px auto;
       grid-template-rows: 1fr auto;
 
@@ -121,17 +113,20 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: #2c3e50;
+  > img {
+    margin-bottom: 24px;
+  }
 
   > .actions {
     padding: 8px 0;
     margin: 12px 0;
     a {
       margin: 0 12px;
-      background: #386779;
+      background: #4abf8a;
       color: white;
       display: inline-block;
-      border-radius: 2rem;
+      border-radius: 4px;
       padding: 12px 24px;
 
       &:hover {

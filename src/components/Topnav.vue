@@ -10,38 +10,33 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <svg v-if="toggleMenuButtonVisible"
-         class="toggleAside"
-         @click="toggleMenu">
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
     </svg>
   </div>
 </template>
 
 <script lang="ts">
-import {inject, Ref} from 'vue';
+import { inject, Ref } from "vue";
 
 export default {
   props: {
     toggleMenuButtonVisible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup() {
-    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    const asideVisible = inject<Ref<boolean>>("asideVisible");
     const toggleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
-    return {toggleMenu};
-  }
+    return { toggleMenu };
+  },
 };
-
-
 </script>
 
-<style lang='scss' scoped>
-
+<style lang="scss" scoped>
 .topnav {
   background: white;
   display: flex;
@@ -65,6 +60,7 @@ export default {
     display: flex;
     white-space: nowrap;
     flex-wrap: wrap;
+    color: #333;
 
     > li {
       margin: 0 1em;
@@ -81,7 +77,7 @@ export default {
     transform: translateY(-50%);
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     > .menu {
       display: none;
     }
