@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav :toggle-menu-button-visible="true" class="nav"/>
+    <Topnav :toggle-menu-button-visible="true" class="nav" />
     <div class="content">
       <aside v-if="asideVisible">
         <h3>文档</h3>
@@ -9,7 +9,7 @@
             <router-link to="/doc/intro">介绍</router-link>
           </li>
         </ol>
-        <ol>
+        <!-- <ol>
           <li>
             <router-link to="/doc/install">安装</router-link>
           </li>
@@ -18,7 +18,7 @@
           <li>
             <router-link to="/doc/start">开始使用</router-link>
           </li>
-        </ol>
+        </ol> -->
         <h3>组件列表</h3>
         <ol>
           <li>
@@ -33,30 +33,32 @@
           <li>
             <router-link to="/doc/tabs">Tabs 标签页</router-link>
           </li>
+          <li>
+            <router-link to="/doc/calendar">Calendar 日历</router-link>
+          </li>
         </ol>
       </aside>
       <main>
-        <router-view/>
+        <router-view />
       </main>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Topnav from '../components/Topnav.vue';
-import {inject, Ref} from 'vue';
+import Topnav from "../components/Topnav.vue"
+import { inject, Ref } from "vue"
 
 export default {
-  components: {Topnav},
+  components: { Topnav },
   setup() {
-    const asideVisible = inject<Ref<boolean>>('asideVisible');
-    return {asideVisible};
-  }
-};
+    const asideVisible = inject<Ref<boolean>>("asideVisible")
+    return { asideVisible }
+  },
+}
 </script>
 
-<style lang='scss' scoped>
-
+<style lang="scss" scoped>
 .layout {
   display: flex;
   flex-direction: column;
@@ -70,7 +72,7 @@ export default {
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
-    @media(max-width: 500px) {
+    @media (max-width: 500px) {
       padding-left: 0;
     }
   }
@@ -122,7 +124,6 @@ aside {
       }
     }
   }
-
 }
 
 main {
