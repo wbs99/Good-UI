@@ -33,6 +33,10 @@ export const router = createRouter({
           path: "calendar",
           component: () => import("./code-demo/calendar-demo/CalendarDemo.vue"),
         },
+        {
+          path: "popover",
+          component: () => import("./code-demo/popover-demo/PopoverDemo.vue"),
+        },
       ],
     },
   ],
